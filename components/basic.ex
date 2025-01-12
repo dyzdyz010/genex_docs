@@ -6,9 +6,27 @@ defmodule Genex.Components.Basic do
 
   def button(assigns) do
     ~H"""
-    <a href={@link} class="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+    <a href={@link} class="button px-5 py-2 ns-glass rounded-lg level-medium ns-border">
       <%= render_slot(@inner_block) %>
     </a>
+    """
+  end
+
+  attr(:links, :list, required: true)
+  attr(:site, :map, required: true)
+
+  def nav(assigns) do
+    ~H"""
+    <nav class="ns-glass border border-[var(--color-border)] level-low flex py-2 px-4 justify-start gap-16 items-center">
+      <a href="/" class="link shadow-none text-xl font-bold">
+        <%= @site.title %>
+      </a>
+      <div class="flex gap-8 shadow-none items-center">
+        <a :for={{label, link} <- @links} href={link} class="link shadow-none">
+          <%= label %>
+        </a>
+      </div>
+    </nav>
     """
   end
 end

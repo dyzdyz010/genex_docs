@@ -5,25 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title(@site, @meta) %></title>
     <meta name="description" content={@site.description} />
+    <link rel="stylesheet" href={"/assets/css/nordstjerna.css"} />
     <link rel="stylesheet" href={"/assets/css/output.css"} />
   </head>
-  <body class="h-screen w-screen bg-white">
-    <nav class="bg-gray-500 p-4">
-      <div class="flex justify-start items-center">
-        <a href="/">
-          <h1 class="text-white text-2xl font-bold">Genex</h1>
-        </a>
-        <div class="flex items-center">
-          <.button link="/articles">Articles</.button>
-        </div>
-      </div>
-    </nav>
-    <main>
-      <h2><%= @meta[:title] %></h2>
+  <body class="body h-screen w-screen" data-theme="light">
+    <canvas id="starfield"></canvas>
+    <.nav links={[{"Articles", "/articles"}, {"About", "/about"}]} site={@site} />
+    <main class="p-4">
       <%= @inner_content %>
     </main>
     <footer>
       <!-- 全局页脚 -->
     </footer>
+    <script src={"/assets/js/star.js"}></script>
   </body>
 </html>

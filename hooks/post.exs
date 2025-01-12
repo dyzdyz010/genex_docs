@@ -1,6 +1,6 @@
 IO.puts("Post hook")
 
-alias Genex.Builder.Render.Utils
+alias Genex.Builder.Utils
 
 assets_folder = Utils.assets_path()
 

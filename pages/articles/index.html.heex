@@ -1,0 +1,11 @@
+<h1>Articles</h1>
+<div :for={article <- @content.articles.items}>
+  <a href={article.link} class="link">
+    <h2><%= article.title %></h2>
+  </a>
+  <div class="meta flex gap-2">
+    <span class="text-sm text-gray-500"><%= article.date %></span>
+    <span class="text-sm text-gray-500"><%= article.author %></span>
+  </div>
+</div>
+
