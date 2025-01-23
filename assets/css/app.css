@@ -18,14 +18,14 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: white; /* Set background to black */
 }
 
 [data-theme="dark"] {
   background: black;
 }
 
-canvas {
+#starfield {
+  z-index: -10000;
   display: block;
   position: fixed;
   top: 0;

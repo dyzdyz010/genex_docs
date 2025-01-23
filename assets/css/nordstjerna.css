@@ -180,10 +180,11 @@
   box-shadow: var(--border-shadow), var(--level-shadow);
 }
 .link {
-  transition: color 300ms ease-in-out, text-decoration-line 300ms ease-in-out;
+  transition: color 200ms ease-in-out, text-decoration-line 200ms ease-in-out;
 }
 .link:hover {
   color: var(--color-primary);
   text-decoration: underline;
   cursor: pointer;
 } /*# sourceMappingURL=style.css.map */
+

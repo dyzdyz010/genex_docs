@@ -2,11 +2,12 @@ defmodule Genex.Components.Basic do
   use Genex.Components
 
   attr(:link, :string, required: true)
+  attr(:class, :string, required: false, default: "")
   slot(:inner_block, required: true)
 
   def button(assigns) do
     ~H"""
-    <a href={@link} class="button px-5 py-2 ns-glass rounded-lg level-medium ns-border">
+    <a href={@link} class={"ns-glass p-8 #{@class}"}>
       <%= render_slot(@inner_block) %>
     </a>
     """

@@ -7,10 +7,13 @@ const speeds = [0.05, 0.1, 0.2]; // Slower speeds for distant stars
 const baseStarCount = 50; // Base count of stars per layer
 let shootingStar = null;
 
-// Generate a random gray color for stars
+// Generate a random gray color for stars, based on data-theme
 function getRandomGrayColor() {
+  const theme = document.body.getAttribute("data-theme");
   const grayValue = Math.floor(Math.random() * 256);
-  return `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
+  return theme === "dark"
+    ? `rgb(255-${grayValue}, 255-${grayValue}, 255-${grayValue})`
+    : `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
 }
 
 // Resize the canvas
@@ -88,8 +91,10 @@ function drawStars() {
     const theme = document.body.getAttribute("data-theme");
     const starColor =
       theme === "dark" ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)";
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
     ctx.fillStyle = starColor;
-    ctx.fillRect(star.x, star.y, star.size, star.size);
+    ctx.fill();
   });
 }
 
